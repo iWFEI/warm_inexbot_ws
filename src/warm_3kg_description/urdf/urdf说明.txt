@@ -1,0 +1,2 @@
+warm_3kg_description：sw直接导出，除了传动关系，父子joint，没有设置惯性、限制等参数；
+warm_3kg_description_xiugai：方向、惯性、质量、重心、速度限制等修改；

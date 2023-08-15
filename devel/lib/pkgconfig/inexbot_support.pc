@@ -1,0 +1,8 @@
+prefix=/home/neil/1_learn/warm_inexbot_ws/devel
+
+Name: inexbot_support
+Description: Description of inexbot_support
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

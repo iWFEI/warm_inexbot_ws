@@ -1,0 +1,15 @@
+<launch>
+  
+    <!-- Launch Gazebo  -->
+    <include file="$(find inexbot_qj)/launch/robot_gazebo_world.launch" />
+
+    <!-- ros_control arm launch file -->
+    <include file="$(find inexbot_qj)/launch/robot_gazebo_states.launch" />   
+
+    <!-- ros_control trajectory control dof arm launch file -->
+    <include file="$(find inexbot_qj)/launch/robot_trajectory_controller.launch" />
+    
+
+    <include file="$(find inexbot_support)/launch/moveit_planning_execution.launch"/>
+
+</launch>

@@ -1,0 +1,8 @@
+prefix=/home/neil/1_learn/warm_inexbot_ws/install
+
+Name: inexbot_reva_service
+Description: Description of inexbot_reva_service
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs roscpp rospy std_msgs turtlesim message_runtime actionlib_msgs

@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="warm_3kg_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.000236190181030162 -0.000548779864163645 0.0175020427390052"
+        rpy="0 0 0" />
+      <mass
+        value="0.355337593041495" />
+      <inertia
+        ixx="0.000370790708995531"
+        ixy="-5.52500680509805E-08"
+        ixz="6.8304268031515E-08"
+        iyy="0.000358426010636167"
+        iyz="4.47606359036351E-07"
+        izz="0.000604500785747379" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="shoulder_link">
+    <inertial>
+      <origin
+        xyz="1.93964127831994E-05 -0.00858104345207037 -0.00802623514121509"
+        rpy="0 0 0" />
+      <mass
+        value="0.770805366675233" />
+      <inertia
+        ixx="0.00101041261288576"
+        ixy="-3.50930268812012E-07"
+        ixz="-6.02050866252361E-07"
+        iyy="0.00107124398730295"
+        iyz="1.66426398712824E-05"
+        izz="0.000928883735920711" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/shoulder_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/shoulder_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder_pan_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.101"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="shoulder_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="upper_arm_link">
+    <inertial>
+      <origin
+        xyz="-0.121499694945407 -1.51145412929457E-05 -0.0112438697097823"
+        rpy="0 0 0" />
+      <mass
+        value="1.70206240123435" />
+      <inertia
+        ixx="0.00221033293122602"
+        ixy="-1.11298878993355E-08"
+        ixz="-4.53634672768071E-08"
+        iyy="0.00280829885351868"
+        iyz="1.49896005651738E-06"
+        izz="0.00260290441578707" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/upper_arm_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/upper_arm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder_lift_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.123 0"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="shoulder_link" />
+    <child
+      link="upper_arm_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="forearm_link">
+    <inertial>
+      <origin
+        xyz="-0.127160485926774 1.0527266048732E-05 0.0103627426491079"
+        rpy="0 0 0" />
+      <mass
+        value="1.03680709505396" />
+      <inertia
+        ixx="0.00113027344492573"
+        ixy="-2.95331121851304E-07"
+        ixz="2.75345649291422E-05"
+        iyy="0.00139979461523887"
+        iyz="4.77586566201684E-07"
+        izz="0.00139756871145603" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/forearm_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/forearm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="elbow_joint"
+    type="revolute">
+    <origin
+      xyz="-0.243 0 -0.113"
+      rpy="0 0 0" />
+    <parent
+      link="upper_arm_link" />
+    <child
+      link="forearm_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wrist_1_link">
+    <inertial>
+      <origin
+        xyz="-2.01770710506669E-05 -0.00974685502099837 -0.00735158015073895"
+        rpy="0 0 0" />
+      <mass
+        value="0.57638512663871" />
+      <inertia
+        ixx="0.000617794439086724"
+        ixy="4.73948607617496E-07"
+        ixz="2.92814574464504E-07"
+        iyy="0.000562387918165649"
+        iyz="1.02081980694112E-05"
+        izz="0.000656802579985132" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/wrist_1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/wrist_1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist_1_joint"
+    type="revolute">
+    <origin
+      xyz="-0.214 0 0.113"
+      rpy="0 0 -1.5708" />
+    <parent
+      link="forearm_link" />
+    <child
+      link="wrist_1_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wrist_2_link">
+    <inertial>
+      <origin
+        xyz="2.85125345244934E-05 0.00974680410213699 -0.00739816734375542"
+        rpy="0 0 0" />
+      <mass
+        value="0.576385402048136" />
+      <inertia
+        ixx="0.00061813369550054"
+        ixy="7.14051091166247E-07"
+        ixz="2.84487488842275E-07"
+        iyy="0.000562387710544563"
+        iyz="-1.13973801430515E-05"
+        izz="0.000656465877231399" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/wrist_2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/wrist_2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist_2_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.11 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="wrist_1_link" />
+    <child
+      link="wrist_2_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wrist_3_link">
+    <inertial>
+      <origin
+        xyz="-5.82080151010575E-15 7.81676418615262E-06 -0.0100415201564152"
+        rpy="0 0 0" />
+      <mass
+        value="0.115799194966488" />
+      <inertia
+        ixx="3.16637561811677E-05"
+        ixy="1.87457348144595E-21"
+        ixz="-7.266888210107E-21"
+        iyy="3.16976976282751E-05"
+        iyz="-4.0005105397827E-09"
+        izz="5.99968021561191E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/wrist_3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warm_3kg_description/meshes/wrist_3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist_3_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.07525 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="wrist_2_link" />
+    <child
+      link="wrist_3_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

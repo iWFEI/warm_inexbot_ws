@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: warm_3kg_description
+    relative_path: urdf/warm_3kg_description_xiugai.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/warm_3kg_description.srdf
+  CONFIG:
+    author_name: neil
+    author_email: 1406479980@qq.com
+    generated_timestamp: 1688976608
