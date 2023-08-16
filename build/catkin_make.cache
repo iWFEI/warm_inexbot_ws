@@ -1,2 +1,2 @@
-inexbot_driver:inexbot_qj:inexbot_reva_service:inexbot_support:warm_3kg_description:warm_moveit_config
+inexbot_driver:inexbot_qj:inexbot_reva_service_NOUSE:inexbot_support:warm_3kg_description:warm_control:warm_moveit_config
 -DCATKIN_DEVEL_PREFIX=/home/neil/1_learn/warm_inexbot_ws/devel -DCMAKE_INSTALL_PREFIX=/home/neil/1_learn/warm_inexbot_ws/install -G Unix Makefiles

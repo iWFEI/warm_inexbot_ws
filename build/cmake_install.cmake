@@ -134,9 +134,10 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/neil/1_learn/warm_inexbot_ws/build/warm_moveit_config/cmake_install.cmake")
   include("/home/neil/1_learn/warm_inexbot_ws/build/inexbot_qj/cmake_install.cmake")
   include("/home/neil/1_learn/warm_inexbot_ws/build/inexbot_support/cmake_install.cmake")
-  include("/home/neil/1_learn/warm_inexbot_ws/build/inexbot_reva_service/cmake_install.cmake")
+  include("/home/neil/1_learn/warm_inexbot_ws/build/inexbot_reva_service_NOUSE/cmake_install.cmake")
   include("/home/neil/1_learn/warm_inexbot_ws/build/inexbot_driver/cmake_install.cmake")
   include("/home/neil/1_learn/warm_inexbot_ws/build/warm_3kg_description/cmake_install.cmake")
+  include("/home/neil/1_learn/warm_inexbot_ws/build/warm_control/cmake_install.cmake")
 
 endif()
 

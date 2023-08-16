@@ -1,0 +1,8 @@
+prefix=/home/neil/1_learn/warm_inexbot_ws/install
+
+Name: warm_control
+Description: Description of warm_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

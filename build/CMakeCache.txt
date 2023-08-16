@@ -510,10 +510,10 @@ inexbot_qj_BINARY_DIR:STATIC=/home/neil/1_learn/warm_inexbot_ws/build/inexbot_qj
 inexbot_qj_SOURCE_DIR:STATIC=/home/neil/1_learn/warm_inexbot_ws/src/inexbot_qj
 
 //Value Computed by CMake
-inexbot_reva_service_BINARY_DIR:STATIC=/home/neil/1_learn/warm_inexbot_ws/build/inexbot_reva_service
+inexbot_reva_service_BINARY_DIR:STATIC=/home/neil/1_learn/warm_inexbot_ws/build/inexbot_reva_service_NOUSE
 
 //Value Computed by CMake
-inexbot_reva_service_SOURCE_DIR:STATIC=/home/neil/1_learn/warm_inexbot_ws/src/inexbot_reva_service
+inexbot_reva_service_SOURCE_DIR:STATIC=/home/neil/1_learn/warm_inexbot_ws/src/inexbot_reva_service_NOUSE
 
 //Value Computed by CMake
 inexbot_support_BINARY_DIR:STATIC=/home/neil/1_learn/warm_inexbot_ws/build/inexbot_support
@@ -525,7 +525,7 @@ inexbot_support_SOURCE_DIR:STATIC=/home/neil/1_learn/warm_inexbot_ws/src/inexbot
 kdl_parser_DIR:PATH=/opt/ros/noetic/share/kdl_parser/cmake
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/noetic/lib/libsimple_message_dummy.so
+lib:FILEPATH=/opt/ros/noetic/lib/libmoveit_move_group_capabilities_base.so
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/noetic/share/message_filters/cmake
@@ -667,6 +667,12 @@ warm_3kg_description_BINARY_DIR:STATIC=/home/neil/1_learn/warm_inexbot_ws/build/
 
 //Value Computed by CMake
 warm_3kg_description_SOURCE_DIR:STATIC=/home/neil/1_learn/warm_inexbot_ws/src/warm_3kg_description
+
+//Value Computed by CMake
+warm_control_BINARY_DIR:STATIC=/home/neil/1_learn/warm_inexbot_ws/build/warm_control
+
+//Value Computed by CMake
+warm_control_SOURCE_DIR:STATIC=/home/neil/1_learn/warm_inexbot_ws/src/warm_control
 
 //Value Computed by CMake
 warm_moveit_config_BINARY_DIR:STATIC=/home/neil/1_learn/warm_inexbot_ws/build/warm_moveit_config
@@ -825,7 +831,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
