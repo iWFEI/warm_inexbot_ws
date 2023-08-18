@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<COLLADA xmlns="http://www.collada.org/2008/03/COLLADASchema" version="1.5.0">
+	<asset>
+		<contributor>
+			<authoring_tool>URDF Collada Writer</authoring_tool>
+		</contributor>
+		<created>2023-08-18T13:22:58.000000</created>
+		<modified>2023-08-18T13:22:58.000000</modified>
+		<unit/>
+		<up_axis>Z_UP</up_axis>
+	</asset>
+	<library_visual_scenes id="vscenes">
+		<visual_scene id="vscene" name="URDF Visual Scene">
+			<node id="visual0" name="warm_3kg_description" sid="visual0">
+				<node id="vkmodel0_node0" name="base_link" sid="node0">
+					<translate>0 0 0</translate>
+					<rotate>1 0 0 0</rotate>
+					<instance_geometry url="#gkmodel0_base_link_geom0">
+						<bind_material>
+							<technique_common>
+								<instance_material symbol="mat0" target="#gkmodel0_base_link_geom0_mat"/>
+							</technique_common>
+						</bind_material>
+					</instance_geometry>
+					<node id="vkmodel0_node2" name="shoulder_link" sid="node2">
+						<translate>-0 -0 -0</translate>
+						<rotate>1 0 0 0</rotate>
+						<translate>0 0 0.101</translate>
+						<rotate>1 0 0 0</rotate>
+						<rotate sid="node_shoulder_pan_joint_axis0">0 0 1 0</rotate>
+						<translate>0 0 0</translate>
+						<rotate>1 0 0 0</rotate>
+						<instance_geometry url="#gkmodel0_shoulder_link_geom0">
+							<bind_material>
+								<technique_common>
+									<instance_material symbol="mat0" target="#gkmodel0_shoulder_link_geom0_mat"/>
+								</technique_common>
+							</bind_material>
+						</instance_geometry>
+						<node id="vkmodel0_node3" name="upper_arm_link" sid="node3">
+							<translate>-0 -0 -0</translate>
+							<rotate>1 0 0 0</rotate>
+							<translate>0 -0.123 0</translate>
+							<rotate>0.5773502691896256 0.5773502691896256 -0.577350269189626 120</rotate>
+							<rotate sid="node_shoulder_lift_joint_axis0">0 0 1 0</rotate>
+							<translate>0 0 0</translate>
+							<rotate>1 0 0 0</rotate>
+							<instance_geometry url="#gkmodel0_upper_arm_link_geom0">
+								<bind_material>
+									<technique_common>
+										<instance_material symbol="mat0" target="#gkmodel0_upper_arm_link_geom0_mat"/>
+									</technique_common>
+								</bind_material>
+							</instance_geometry>
+							<node id="vkmodel0_node1" name="forearm_link" sid="node1">
+								<translate>-0 -0 -0</translate>
+								<rotate>1 0 0 0</rotate>
+								<translate>-0.243 0 -0.113</translate>
+								<rotate>1 0 0 0</rotate>
+								<rotate sid="node_elbow_joint_axis0">0 0 1 0</rotate>
+								<translate>0 0 0</translate>
+								<rotate>1 0 0 0</rotate>
+								<instance_geometry url="#gkmodel0_forearm_link_geom0">
+									<bind_material>
+										<technique_common>
+											<instance_material symbol="mat0" target="#gkmodel0_forearm_link_geom0_mat"/>
+										</technique_common>
+									</bind_material>
+								</instance_geometry>
+								<node id="vkmodel0_node4" name="wrist_1_link" sid="node4">
+									<translate>-0 -0 -0</translate>
+									<rotate>1 0 0 0</rotate>
+									<translate>-0.214 0 0.113</translate>
+									<rotate>0 0 -1 90.00000000000001</rotate>
+									<rotate sid="node_wrist_1_joint_axis0">0 0 1 0</rotate>
+									<translate>0 0 0</translate>
+									<rotate>1 0 0 0</rotate>
+									<instance_geometry url="#gkmodel0_wrist_1_link_geom0">
+										<bind_material>
+											<technique_common>
+												<instance_material symbol="mat0" target="#gkmodel0_wrist_1_link_geom0_mat"/>
+											</technique_common>
+										</bind_material>
+									</instance_geometry>
+									<node id="vkmodel0_node5" name="wrist_2_link" sid="node5">
+										<translate>-0 -0 -0</translate>
+										<rotate>1 0 0 0</rotate>
+										<translate>0 -0.11 0</translate>
+										<rotate>1 0 0 90.00000000000001</rotate>
+										<rotate sid="node_wrist_2_joint_axis0">0 0 1 0</rotate>
+										<translate>0 0 0</translate>
+										<rotate>1 0 0 0</rotate>
+										<instance_geometry url="#gkmodel0_wrist_2_link_geom0">
+											<bind_material>
+												<technique_common>
+													<instance_material symbol="mat0" target="#gkmodel0_wrist_2_link_geom0_mat"/>
+												</technique_common>
+											</bind_material>
+										</instance_geometry>
+										<node id="vkmodel0_node6" name="wrist_3_link" sid="node6">
+											<translate>-0 -0 -0</translate>
+											<rotate>1 0 0 0</rotate>
+											<translate>0 0.07525 0</translate>
+											<rotate>-1 0 0 90.00000000000001</rotate>
+											<rotate sid="node_wrist_3_joint_axis0">0 0 1 0</rotate>
+											<translate>0 0 0</translate>
+											<rotate>1 0 0 0</rotate>
+											<instance_geometry url="#gkmodel0_wrist_3_link_geom0">
+												<bind_material>
+													<technique_common>
+														<instance_material symbol="mat0" target="#gkmodel0_wrist_3_link_geom0_mat"/>
+													</technique_common>
+												</bind_material>
+											</instance_geometry>
+										</node>
+									</node>
+								</node>
+							</node>
+						</node>
+					</node>
+				</node>
+			</node>
+		</visual_scene>
+	</library_visual_scenes>
+	<library_geometries id="geometries">
+		<geometry id="gkmodel0_base_link_geom0" name="package://warm_3kg_description/meshes/base_link.STL"/>
+		<geometry id="gkmodel0_shoulder_link_geom0" name="package://warm_3kg_description/meshes/shoulder_link.STL"/>
+		<geometry id="gkmodel0_upper_arm_link_geom0" name="package://warm_3kg_description/meshes/upper_arm_link.STL"/>
+		<geometry id="gkmodel0_forearm_link_geom0" name="package://warm_3kg_description/meshes/forearm_link.STL"/>
+		<geometry id="gkmodel0_wrist_1_link_geom0" name="package://warm_3kg_description/meshes/wrist_1_link.STL"/>
+		<geometry id="gkmodel0_wrist_2_link_geom0" name="package://warm_3kg_description/meshes/wrist_2_link.STL"/>
+		<geometry id="gkmodel0_wrist_3_link_geom0" name="package://warm_3kg_description/meshes/wrist_3_link.STL"/>
+	</library_geometries>
+	<library_effects id="effects">
+		<effect id="gkmodel0_base_link_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.4469999969005585 0.7409999966621399 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.4469999969005585 0.7409999966621399 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_base_link_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.4469999969005585 0.7409999966621399 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.4469999969005585 0.7409999966621399 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_shoulder_link_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.8500000238418579 0.324999988079071 0.09799999743700027 1</color>
+						</ambient>
+						<diffuse>
+							<color>0.8500000238418579 0.324999988079071 0.09799999743700027 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_shoulder_link_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.8500000238418579 0.324999988079071 0.09799999743700027 1</color>
+						</ambient>
+						<diffuse>
+							<color>0.8500000238418579 0.324999988079071 0.09799999743700027 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_upper_arm_link_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.9290000200271606 0.6940000057220459 0.125 1</color>
+						</ambient>
+						<diffuse>
+							<color>0.9290000200271606 0.6940000057220459 0.125 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_upper_arm_link_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.9290000200271606 0.6940000057220459 0.125 1</color>
+						</ambient>
+						<diffuse>
+							<color>0.9290000200271606 0.6940000057220459 0.125 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_forearm_link_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.4939999878406525 0.1840000003576279 0.5559999942779541 1</color>
+						</ambient>
+						<diffuse>
+							<color>0.4939999878406525 0.1840000003576279 0.5559999942779541 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_forearm_link_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.4939999878406525 0.1840000003576279 0.5559999942779541 1</color>
+						</ambient>
+						<diffuse>
+							<color>0.4939999878406525 0.1840000003576279 0.5559999942779541 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_wrist_1_link_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.4659999907016754 0.6740000247955322 0.1879999935626984 1</color>
+						</ambient>
+						<diffuse>
+							<color>0.4659999907016754 0.6740000247955322 0.1879999935626984 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_wrist_1_link_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.4659999907016754 0.6740000247955322 0.1879999935626984 1</color>
+						</ambient>
+						<diffuse>
+							<color>0.4659999907016754 0.6740000247955322 0.1879999935626984 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_wrist_2_link_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.3009999990463257 0.7450000047683716 0.9330000281333923 1</color>
+						</ambient>
+						<diffuse>
+							<color>0.3009999990463257 0.7450000047683716 0.9330000281333923 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_wrist_2_link_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.3009999990463257 0.7450000047683716 0.9330000281333923 1</color>
+						</ambient>
+						<diffuse>
+							<color>0.3009999990463257 0.7450000047683716 0.9330000281333923 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_wrist_3_link_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.6349999904632568 0.07800000160932541 0.1840000003576279 1</color>
+						</ambient>
+						<diffuse>
+							<color>0.6349999904632568 0.07800000160932541 0.1840000003576279 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_wrist_3_link_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.6349999904632568 0.07800000160932541 0.1840000003576279 1</color>
+						</ambient>
+						<diffuse>
+							<color>0.6349999904632568 0.07800000160932541 0.1840000003576279 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials id="materials">
+		<material id="gkmodel0_base_link_geom0_mat">
+			<instance_effect url="#gkmodel0_base_link_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_base_link_geom0_mat">
+			<instance_effect url="#gkmodel0_base_link_geom0"/>
+		</material>
+		<material id="gkmodel0_shoulder_link_geom0_mat">
+			<instance_effect url="#gkmodel0_shoulder_link_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_shoulder_link_geom0_mat">
+			<instance_effect url="#gkmodel0_shoulder_link_geom0"/>
+		</material>
+		<material id="gkmodel0_upper_arm_link_geom0_mat">
+			<instance_effect url="#gkmodel0_upper_arm_link_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_upper_arm_link_geom0_mat">
+			<instance_effect url="#gkmodel0_upper_arm_link_geom0"/>
+		</material>
+		<material id="gkmodel0_forearm_link_geom0_mat">
+			<instance_effect url="#gkmodel0_forearm_link_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_forearm_link_geom0_mat">
+			<instance_effect url="#gkmodel0_forearm_link_geom0"/>
+		</material>
+		<material id="gkmodel0_wrist_1_link_geom0_mat">
+			<instance_effect url="#gkmodel0_wrist_1_link_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_wrist_1_link_geom0_mat">
+			<instance_effect url="#gkmodel0_wrist_1_link_geom0"/>
+		</material>
+		<material id="gkmodel0_wrist_2_link_geom0_mat">
+			<instance_effect url="#gkmodel0_wrist_2_link_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_wrist_2_link_geom0_mat">
+			<instance_effect url="#gkmodel0_wrist_2_link_geom0"/>
+		</material>
+		<material id="gkmodel0_wrist_3_link_geom0_mat">
+			<instance_effect url="#gkmodel0_wrist_3_link_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_wrist_3_link_geom0_mat">
+			<instance_effect url="#gkmodel0_wrist_3_link_geom0"/>
+		</material>
+	</library_materials>
+	<library_kinematics_models id="kmodels">
+		<kinematics_model id="kmodel0" name="warm_3kg_description">
+			<technique_common>
+				<joint name="elbow_joint" sid="elbow_joint">
+					<revolute sid="axis0">
+						<axis>0 0 1</axis>
+						<limits>
+							<min>-146.0011053552364</min>
+							<max>146.0011053552364</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="shoulder_lift_joint" sid="shoulder_lift_joint">
+					<revolute sid="axis0">
+						<axis>0 0 1</axis>
+						<limits>
+							<min>-146.0011053552364</min>
+							<max>146.0011053552364</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="shoulder_pan_joint" sid="shoulder_pan_joint">
+					<revolute sid="axis0">
+						<axis>0 0 1</axis>
+						<limits>
+							<min>-180</min>
+							<max>180</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="wrist_1_joint" sid="wrist_1_joint">
+					<revolute sid="axis0">
+						<axis>0 0 1</axis>
+						<limits>
+							<min>-180</min>
+							<max>180</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="wrist_2_joint" sid="wrist_2_joint">
+					<revolute sid="axis0">
+						<axis>0 0 1</axis>
+						<limits>
+							<min>-180</min>
+							<max>180</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="wrist_3_joint" sid="wrist_3_joint">
+					<revolute sid="axis0">
+						<axis>0 0 1</axis>
+						<limits>
+							<min>-180</min>
+							<max>180</max>
+						</limits>
+					</revolute>
+				</joint>
+				<link sid="base_link" name="base_link">
+					<attachment_full joint="kmodel0/shoulder_pan_joint">
+						<translate>0 0 0.101</translate>
+						<rotate>1 0 0 0</rotate>
+						<link sid="shoulder_link" name="shoulder_link">
+							<attachment_full joint="kmodel0/shoulder_lift_joint">
+								<translate>0 -0.123 0</translate>
+								<rotate>0.5773502691896256 0.5773502691896256 -0.577350269189626 120</rotate>
+								<link sid="upper_arm_link" name="upper_arm_link">
+									<attachment_full joint="kmodel0/elbow_joint">
+										<translate>-0.243 0 -0.113</translate>
+										<rotate>1 0 0 0</rotate>
+										<link sid="forearm_link" name="forearm_link">
+											<attachment_full joint="kmodel0/wrist_1_joint">
+												<translate>-0.214 0 0.113</translate>
+												<rotate>0 0 -1 90.00000000000001</rotate>
+												<link sid="wrist_1_link" name="wrist_1_link">
+													<attachment_full joint="kmodel0/wrist_2_joint">
+														<translate>0 -0.11 0</translate>
+														<rotate>1 0 0 90.00000000000001</rotate>
+														<link sid="wrist_2_link" name="wrist_2_link">
+															<attachment_full joint="kmodel0/wrist_3_joint">
+																<translate>0 0.07525 0</translate>
+																<rotate>-1 0 0 90.00000000000001</rotate>
+																<link sid="wrist_3_link" name="wrist_3_link"/>
+															</attachment_full>
+														</link>
+													</attachment_full>
+												</link>
+											</attachment_full>
+										</link>
+									</attachment_full>
+								</link>
+							</attachment_full>
+						</link>
+					</attachment_full>
+				</link>
+			</technique_common>
+		</kinematics_model>
+	</library_kinematics_models>
+	<library_articulated_systems id="asystems">
+		<articulated_system id="robot0_motion">
+			<motion>
+				<instance_articulated_system url="#robot0_kinematics">
+					<newparam sid="robot0_motion_kmodel0_inst">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_elbow_joint_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_elbow_joint_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_elbow_joint_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_elbow_joint_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_shoulder_lift_joint_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_shoulder_lift_joint_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_shoulder_lift_joint_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_shoulder_lift_joint_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_shoulder_pan_joint_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_shoulder_pan_joint_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_shoulder_pan_joint_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_shoulder_pan_joint_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_wrist_1_joint_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_wrist_1_joint_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_wrist_1_joint_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_wrist_1_joint_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_wrist_2_joint_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_wrist_2_joint_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_wrist_2_joint_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_wrist_2_joint_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_wrist_3_joint_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_wrist_3_joint_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_wrist_3_joint_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_wrist_3_joint_axis0_value</SIDREF>
+					</newparam>
+				</instance_articulated_system>
+				<technique_common>
+					<axis_info axis="robot0_kinematics/axis_info_inst0">
+						<speed>
+							<float>3.15</float>
+						</speed>
+						<acceleration>
+							<float>150</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst1">
+						<speed>
+							<float>2.16</float>
+						</speed>
+						<acceleration>
+							<float>150</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst2">
+						<speed>
+							<float>2.16</float>
+						</speed>
+						<acceleration>
+							<float>150</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst3">
+						<speed>
+							<float>3.2</float>
+						</speed>
+						<acceleration>
+							<float>54</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst4">
+						<speed>
+							<float>3.2</float>
+						</speed>
+						<acceleration>
+							<float>54</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst5">
+						<speed>
+							<float>3.2</float>
+						</speed>
+						<acceleration>
+							<float>54</float>
+						</acceleration>
+					</axis_info>
+				</technique_common>
+			</motion>
+		</articulated_system>
+		<articulated_system id="robot0_kinematics">
+			<kinematics>
+				<instance_kinematics_model url="#kmodel0" sid="kmodel0_inst">
+					<newparam sid="robot0_kinematics_kmodel0_inst">
+						<SIDREF>robot0_kinematics/kmodel0_inst</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_elbow_joint_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/elbow_joint/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_elbow_joint_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_shoulder_lift_joint_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/shoulder_lift_joint/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_shoulder_lift_joint_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_shoulder_pan_joint_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/shoulder_pan_joint/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_shoulder_pan_joint_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_wrist_1_joint_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/wrist_1_joint/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_wrist_1_joint_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_wrist_2_joint_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/wrist_2_joint/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_wrist_2_joint_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_wrist_3_joint_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/wrist_3_joint/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_wrist_3_joint_axis0_value">
+						<float>0</float>
+					</newparam>
+				</instance_kinematics_model>
+				<technique_common>
+					<axis_info sid="axis_info_inst0" axis="kmodel0/elbow_joint/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-146.0011053552364</float>
+							</min>
+							<max>
+								<float>146.0011053552364</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst1" axis="kmodel0/shoulder_lift_joint/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-146.0011053552364</float>
+							</min>
+							<max>
+								<float>146.0011053552364</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst2" axis="kmodel0/shoulder_pan_joint/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-180</float>
+							</min>
+							<max>
+								<float>180</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst3" axis="kmodel0/wrist_1_joint/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-180</float>
+							</min>
+							<max>
+								<float>180</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst4" axis="kmodel0/wrist_2_joint/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-180</float>
+							</min>
+							<max>
+								<float>180</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst5" axis="kmodel0/wrist_3_joint/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-180</float>
+							</min>
+							<max>
+								<float>180</float>
+							</max>
+						</limits>
+					</axis_info>
+				</technique_common>
+			</kinematics>
+		</articulated_system>
+	</library_articulated_systems>
+	<library_kinematics_scenes id="kscenes">
+		<kinematics_scene id="kscene" name="URDF Kinematics Scene">
+			<instance_articulated_system sid="robot0_motion_inst" url="#robot0_motion" name="warm_3kg_description">
+				<bind symbol="kscene_kmodel0_inst">
+					<param ref="robot0_motion/robot0_motion_kmodel0_inst"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_elbow_joint_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_elbow_joint_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_elbow_joint_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_elbow_joint_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_shoulder_lift_joint_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_shoulder_lift_joint_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_shoulder_lift_joint_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_shoulder_lift_joint_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_shoulder_pan_joint_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_shoulder_pan_joint_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_shoulder_pan_joint_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_shoulder_pan_joint_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_wrist_1_joint_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_wrist_1_joint_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_wrist_1_joint_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_wrist_1_joint_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_wrist_2_joint_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_wrist_2_joint_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_wrist_2_joint_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_wrist_2_joint_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_wrist_3_joint_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_wrist_3_joint_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_wrist_3_joint_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_wrist_3_joint_axis0_value"/>
+				</bind>
+			</instance_articulated_system>
+		</kinematics_scene>
+	</library_kinematics_scenes>
+	<library_physics_scenes id="pscenes">
+		<physics_scene id="pscene" name="URDF Physics Scene">
+			<instance_physics_model url="#pmodel0" sid="pmodel0_inst" parent="#visual0">
+				<instance_rigid_body body="rigid0" target="#vkmodel0_node0"/>
+				<instance_rigid_body body="rigid1" target="#vkmodel0_node1"/>
+				<instance_rigid_body body="rigid2" target="#vkmodel0_node2"/>
+				<instance_rigid_body body="rigid3" target="#vkmodel0_node3"/>
+				<instance_rigid_body body="rigid4" target="#vkmodel0_node4"/>
+				<instance_rigid_body body="rigid5" target="#vkmodel0_node5"/>
+				<instance_rigid_body body="rigid6" target="#vkmodel0_node6"/>
+			</instance_physics_model>
+			<technique_common>
+				<gravity>0 0 0</gravity>
+			</technique_common>
+		</physics_scene>
+	</library_physics_scenes>
+	<library_physics_models id="pmodels">
+		<physics_model id="pmodel0" name="warm_3kg_description">
+			<rigid_body sid="rigid0" name="base_link">
+				<technique_common>
+					<dynamic>true</dynamic>
+					<mass>0.35532746</mass>
+					<mass_frame>
+						<translate>0.00023586 -0.00054882 0.01750154</translate>
+						<rotate>0.9999977815264233 0.002055865025966753 -0.0004586515310472207 179.730893367121</rotate>
+					</mass_frame>
+					<inertia>0.0003890300241648317 0.0003766347668600582 0.0006045352089751101</inertia>
+				</technique_common>
+			</rigid_body>
+			<rigid_body sid="rigid1" name="forearm_link">
+				<technique_common>
+					<dynamic>true</dynamic>
+					<mass>1.74820976</mass>
+					<mass_frame>
+						<translate>2.670000000022453e-05 -0.02287077 0.5064690599999999</translate>
+						<rotate>-0.7181232567823337 0.00138550341293082 0.695914555422307 179.8332203653937</rotate>
+					</mass_frame>
+					<inertia>0.001925101439879989 0.01377701314610706 0.01409296541401296</inertia>
+				</technique_common>
+			</rigid_body>
+			<rigid_body sid="rigid2" name="shoulder_link">
+				<technique_common>
+					<dynamic>true</dynamic>
+					<mass>1.71244732</mass>
+					<mass_frame>
+						<translate>3.123e-05 -0.00383907 0.09002752</translate>
+						<rotate>0.977250732925934 -0.2120772499567664 0.002060351062297191 179.7315640074879</rotate>
+					</mass_frame>
+					<inertia>0.002259895061666306 0.002262829164432267 0.001896705773901426</inertia>
+				</technique_common>
+			</rigid_body>
+			<rigid_body sid="rigid3" name="upper_arm_link">
+				<technique_common>
+					<dynamic>true</dynamic>
+					<mass>3.5853269</mass>
+					<mass_frame>
+						<translate>-2.908999999993933e-05 -0.10787427 0.22249941</translate>
+						<rotate>0.5781711302546261 0.5757085604810633 -0.5781676206161237 120.1410186585538</rotate>
+					</mass_frame>
+					<inertia>0.004236709998816474 0.05203042594673764 0.05115320405444589</inertia>
+				</technique_common>
+			</rigid_body>
+			<rigid_body sid="rigid4" name="wrist_1_link">
+				<technique_common>
+					<dynamic>true</dynamic>
+					<mass>1.28778952</mass>
+					<mass_frame>
+						<translate>3.635000000021564e-05 -0.11974922 0.56983476</translate>
+						<rotate>-0.003019976112971778 -0.5457719700694161 -0.8379283002923493 179.8024238590271</rotate>
+					</mass_frame>
+					<inertia>0.001403830914178142 0.001177750403400102 0.001308578682421756</inertia>
+				</technique_common>
+			</rigid_body>
+			<rigid_body sid="rigid5" name="wrist_2_link">
+				<technique_common>
+					<dynamic>true</dynamic>
+					<mass>1.28778952</mass>
+					<mass_frame>
+						<translate>-5.221999999970758e-05 -0.13483476 0.6646605699999999</translate>
+						<rotate>0.006561047948647313 0.8420868704497637 0.5393020074744188 179.9844941922569</rotate>
+					</mass_frame>
+					<inertia>0.001403552401712035 0.00131052353945269 0.001174574058835275</inertia>
+				</technique_common>
+			</rigid_body>
+			<rigid_body sid="rigid6" name="wrist_3_link">
+				<technique_common>
+					<dynamic>true</dynamic>
+					<mass>0.1157992</mass>
+					<mass_frame>
+						<translate>2.719531496011757e-16 -0.18820848 0.6679921799999999</translate>
+						<rotate>1.665334536937735e-16 -0.7071067811865476 0.7071067811865476 179.9999999999999</rotate>
+					</mass_frame>
+					<inertia>3.453e-05 3.456e-05 6e-05</inertia>
+				</technique_common>
+			</rigid_body>
+		</physics_model>
+	</library_physics_models>
+	<scene>
+		<instance_physics_scene url="#pscene"/>
+		<instance_visual_scene url="#vscene"/>
+		<instance_kinematics_scene url="#kscene">
+			<bind_kinematics_model node="visual0/node0">
+				<param>kscene_kmodel0_inst</param>
+			</bind_kinematics_model>
+			<bind_joint_axis target="node0/node2/node1/node_elbow_joint_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_elbow_joint_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_elbow_joint_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node3/node_shoulder_lift_joint_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_shoulder_lift_joint_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_shoulder_lift_joint_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node2/node_shoulder_pan_joint_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_shoulder_pan_joint_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_shoulder_pan_joint_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node2/node3/node4/node_wrist_1_joint_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_wrist_1_joint_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_wrist_1_joint_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node2/node3/node1/node5/node_wrist_2_joint_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_wrist_2_joint_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_wrist_2_joint_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node2/node3/node1/node4/node6/node_wrist_3_joint_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_wrist_3_joint_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_wrist_3_joint_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+		</instance_kinematics_scene>
+	</scene>
+	<extra id="sensors" type="library_sensors">
+		<technique profile="OpenRAVE"/>
+	</extra>
+</COLLADA>

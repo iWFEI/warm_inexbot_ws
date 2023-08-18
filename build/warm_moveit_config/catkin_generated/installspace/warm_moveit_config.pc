@@ -1,8 +1,0 @@
-prefix=/home/neil/1_learn/warm_inexbot_ws/install
-
-Name: warm_moveit_config
-Description: Description of warm_moveit_config
-Version: 0.3.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
