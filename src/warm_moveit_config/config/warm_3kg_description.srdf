@@ -24,9 +24,9 @@
     <group_state name="ready" group="manipulator">
         <joint name="shoulder_pan_joint" value="0"/>
         <joint name="shoulder_lift_joint" value="0"/>
-        <joint name="elbow_joint" value="1.5708"/>
+        <joint name="elbow_joint" value="-1.5708"/>
         <joint name="wrist_1_joint" value="0"/>
-        <joint name="wrist_2_joint" value="-1.5708"/>
+        <joint name="wrist_2_joint" value="1.5708"/>
         <joint name="wrist_3_joint" value="0"/>
     </group_state>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->

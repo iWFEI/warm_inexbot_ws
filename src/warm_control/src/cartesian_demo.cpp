@@ -41,11 +41,11 @@ int main(int argc, char **argv)
     arm.setGoalOrientationTolerance(0.01);
 
     //设置允许的最大速度和加速度
-    arm.setMaxAccelerationScalingFactor(0.5);
-    arm.setMaxVelocityScalingFactor(0.5);
+    arm.setMaxAccelerationScalingFactor(0.1);
+    arm.setMaxVelocityScalingFactor(0.1);
 
     // 控制机械臂先回到初始化位置
-    arm.setNamedTarget("home");
+    arm.setNamedTarget("ready");
     arm.move();
     sleep(1);
 
@@ -57,14 +57,22 @@ int main(int argc, char **argv)
     //将初始位姿加入路点列表
 	waypoints.push_back(start_pose);
 	
-    start_pose.position.z -= 0.2;
-	waypoints.push_back(start_pose);
+    geometry_msgs::Pose target_pose;
+    target_pose.position.x = 0.0;
+    target_pose.position.y = -0.3;
+    target_pose.position.z = 0.3;
+    target_pose.orientation.z = 0.0;
+    target_pose.orientation.y = -0.7071;
+    target_pose.orientation.x = -0.7071;
+    target_pose.orientation.w = 0.0;
 
-    // start_pose.position.x += 0.1;
-	// waypoints.push_back(start_pose);
+	waypoints.push_back(target_pose);
 
-    // start_pose.position.y += 0.1;
-	// waypoints.push_back(start_pose);
+    target_pose.position.x += 0.2;
+	waypoints.push_back(target_pose);
+
+    // target_pose.position.y += 0.1;
+	// waypoints.push_back(target_pose);
 
 	// 笛卡尔空间下的路径规划
 	moveit_msgs::RobotTrajectory trajectory;

@@ -5,7 +5,7 @@
 import rospy, sys
 import moveit_commander
 from moveit_commander import MoveGroupCommander
-from geometry_msgs.msg import Pose
+from geometry_msgs.msg import Pose, PoseStamped
 from copy import deepcopy
 
 class MoveItCartesianDemo:
@@ -14,7 +14,7 @@ class MoveItCartesianDemo:
         moveit_commander.roscpp_initialize(sys.argv)
 
         # 初始化ROS节点
-        rospy.init_node('moveit_cartesian_demo', anonymous=True)
+        rospy.init_node('cartesian_demo', anonymous=True)
                         
         # 初始化需要使用move group控制的机械臂中的arm group
         arm = MoveGroupCommander('manipulator')
@@ -23,6 +23,7 @@ class MoveItCartesianDemo:
         arm.allow_replanning(True)
         
         # 设置目标位置所使用的参考坐标系
+        reference_frame = 'base_link'
         arm.set_pose_reference_frame('base_link')
                 
         # 设置位置(单位：米)和姿态（单位：弧度）的允许误差
@@ -37,9 +38,9 @@ class MoveItCartesianDemo:
         end_effector_link = arm.get_end_effector_link()
 
         # 控制机械臂先回到初始化位置
-        arm.set_named_target('home')
+        arm.set_named_target('ready')
         arm.go()
-        rospy.sleep(1)
+        rospy.sleep(0.5)
                                                
         # 获取当前位姿数据最为机械臂运动的起始位姿
         start_pose = arm.get_current_pose(end_effector_link).pose
@@ -49,17 +50,30 @@ class MoveItCartesianDemo:
                 
         # 将初始位姿加入路点列表
         waypoints.append(start_pose)
-            
-        # 设置路点数据，并加入路点列表
-        wpose = deepcopy(start_pose)
-        wpose.position.z -= 0.2
-        waypoints.append(deepcopy(wpose))
 
-        wpose.position.x += 0.1
-        waypoints.append(deepcopy(wpose))
+        target_pose = PoseStamped()
+        target_pose.header.frame_id = reference_frame
+        target_pose.header.stamp = rospy.Time.now()     
+        target_pose.pose.position.x = 0.0
+        target_pose.pose.position.y = -0.3
+        target_pose.pose.position.z = 0.3
+        target_pose.pose.orientation.x = -0.7071
+        target_pose.pose.orientation.y = -0.7071
+        target_pose.pose.orientation.z = 0.0
+        target_pose.pose.orientation.w = 0.0
+
+        waypoints.append(deepcopy(target_pose))
+
+        # 设置路点数据，并加入路点列表
+        # wpose = deepcopy(start_pose)
+        # wpose.position.z -= 0.2
+        # waypoints.append(deepcopy(wpose))
+
+        # wpose.position.x += 0.1
+        # waypoints.append(deepcopy(wpose))
         
-        wpose.position.y += 0.1
-        waypoints.append(deepcopy(wpose))
+        # wpose.position.y += 0.1
+        # waypoints.append(deepcopy(wpose))
 
         fraction = 0.0   #路径规划覆盖率
         maxtries = 100   #最大尝试规划次数
