@@ -4,7 +4,6 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /MotionPlanning1
         - /MotionPlanning1/Scene Robot1
         - /MotionPlanning1/Planning Request1
         - /TF1/Frames1
@@ -44,7 +43,7 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Acceleration_Scaling_Factor: 0.09999999999999998
+    - Acceleration_Scaling_Factor: 0.1
       Class: moveit_rviz_plugin/MotionPlanning
       Enabled: true
       Move Group Namespace: ""
@@ -211,7 +210,7 @@ Visualization Manager:
         Show Robot Collision: false
         Show Robot Visual: true
       Value: true
-      Velocity_Scaling_Factor: 0.09999999999999998
+      Velocity_Scaling_Factor: 0.1
     - Alpha: 1
       Class: rviz/Axes
       Enabled: true
@@ -389,9 +388,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.21000051498413086
+      Pitch: 0.18500053882598877
       Target Frame: base_link
-      Yaw: 4.1799211502075195
+      Yaw: 4.804935455322266
     Saved: ~
 Window Geometry:
   Displays:

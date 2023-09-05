@@ -36,8 +36,8 @@ class MoveItCartesianDemo:
         arm.set_goal_orientation_tolerance(0.1)
 
         # 设置允许的最大速度和加速度
-        arm.set_max_acceleration_scaling_factor(0.3)
-        arm.set_max_velocity_scaling_factor(0.3)
+        arm.set_max_acceleration_scaling_factor(0.1)
+        arm.set_max_velocity_scaling_factor(0.1)
         
         # 获取终端link的名称
         end_effector_link = arm.get_end_effector_link()
@@ -45,6 +45,7 @@ class MoveItCartesianDemo:
         # 控制机械臂运动到之前设置的“forward”姿态
         arm.set_named_target('ready')
         arm.go()
+        rospy.sleep(1)
         
         # 获取当前位姿数据最为机械臂运动的起始位姿
         start_pose = arm.get_current_pose(end_effector_link).pose
@@ -59,7 +60,7 @@ class MoveItCartesianDemo:
         # 设置第二个路点数据，并加入路点列表
         # 第二个路点需要向后运动0.2米，向右运动0.2米
         wpose = deepcopy(start_pose)
-        wpose.position.x -= 0.1
+        wpose.position.x += 0.1
         # wpose.position.y -= 0.2
  
         if cartesian:
@@ -72,7 +73,7 @@ class MoveItCartesianDemo:
         # 设置第三个路点数据，并加入路点列表
         wpose.position.x += 0.05
         wpose.position.y += 0.15
-        wpose.position.z -= 0.05
+        # wpose.position.z -= 0.05
           
         if cartesian:
             waypoints.append(deepcopy(wpose))
@@ -83,7 +84,7 @@ class MoveItCartesianDemo:
         
         # 设置第四个路点数据，回到初始位置，并加入路点列表
         if cartesian:
-            waypoints.append(start_pose)
+            waypoints.append(deepcopy(start_pose))
         else:
             arm.set_pose_target(start_pose)
             arm.go()
