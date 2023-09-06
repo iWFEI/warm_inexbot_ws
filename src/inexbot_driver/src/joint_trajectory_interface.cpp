@@ -149,7 +149,7 @@ bool JointTrajectoryInterface::trajectory_to_msgs(const trajectory_msgs::JointTr
     // reduce velocity to a single scalar, for robot command
     // if (!calc_speed(xform_pt, &vel, &duration))
     //   return false;
-    JointTrajPtFullMessage msg = create_message(0, i, 0, xform_pt.time_from_start.toNSec()*(1e-6), xform_pt.positions, xform_pt.velocities, xform_pt.accelerations);
+    JointTrajPtFullMessage msg = create_message(0, i, 0, xform_pt.time_from_start.toNSec() * (1e-6), xform_pt.positions, xform_pt.velocities, xform_pt.accelerations);
     msgs->push_back(msg);
   }
 
