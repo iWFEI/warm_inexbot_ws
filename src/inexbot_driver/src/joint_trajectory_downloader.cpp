@@ -12,6 +12,7 @@ namespace joint_trajectory_downloader
 using industrial::simple_message::SimpleMessage;
 namespace SpecialSeqValues = industrial::joint_traj_pt_full::SpecialSeqValues;
 
+
 bool JointTrajectoryDownloader::send_to_robot(const std::vector<JointTrajPtFullMessage>& messages)
 {
   bool rslt=true;

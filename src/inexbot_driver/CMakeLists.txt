@@ -48,10 +48,28 @@ target_compile_definitions(
   PRIVATE
   ${industrial_robot_client_DEFINITIONS})
 
+add_executable(${PROJECT_NAME}_motion_streamer_interface
+  src/abb_joint_streamer_node.cpp
+  src/abb_utils.cpp
+  src/joint_trajectory_streamer.cpp
+  src/joint_trajectory_interface.cpp
+  )
+target_link_libraries(${PROJECT_NAME}_motion_streamer_interface
+  industrial_robot_client
+  simple_message
+  ${catkin_LIBRARIES})
+set_target_properties(${PROJECT_NAME}_motion_streamer_interface
+  PROPERTIES OUTPUT_NAME motion_streamer_interface PREFIX "")
+target_compile_definitions(
+  ${PROJECT_NAME}_motion_streamer_interface
+  PRIVATE
+  ${industrial_robot_client_DEFINITIONS})
+
 install(
   TARGETS
     ${PROJECT_NAME}_robot_state
     ${PROJECT_NAME}_motion_download_interface
+    ${PROJECT_NAME}_motion_streamer_interface
   DESTINATION
     ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

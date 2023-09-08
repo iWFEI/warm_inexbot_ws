@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include "abb_driver/joint_trajectory_interface.h"
+
 // #include "simple_message/joint_traj_pt.h"
 #include "simple_message/joint_traj_pt_full.h"
 
@@ -78,6 +79,7 @@ bool JointTrajectoryInterface::init(SmplMsgConnection* connection, const std::ve
     ROS_WARN("Unable to read velocity limits from 'robot_description' param.  Velocity validation disabled.");
 
   this->srv_stop_motion_ = this->node_.advertiseService("stop_motion", &JointTrajectoryInterface::stopMotionCB, this);
+  // this->srv_joint_trajectory_ = this->node_.advertiseService("joint_path_command", &JointTrajectoryInterface::jointTrajectoryCB, this);
   this->srv_joint_trajectory_ = this->node_.advertiseService("joint_path_command", &JointTrajectoryInterface::jointTrajectoryCB, this);
   this->sub_joint_trajectory_ = this->node_.subscribe("joint_path_command", 0, &JointTrajectoryInterface::jointTrajectoryCB, this);
   this->sub_cur_pos_ = this->node_.subscribe("joint_states", 1, &JointTrajectoryInterface::jointStateCB, this);
@@ -150,6 +152,9 @@ bool JointTrajectoryInterface::trajectory_to_msgs(const trajectory_msgs::JointTr
     // if (!calc_speed(xform_pt, &vel, &duration))
     //   return false;
     JointTrajPtFullMessage msg = create_message(0, i, 0, xform_pt.time_from_start.toNSec()*(1e-6), xform_pt.positions, xform_pt.velocities, xform_pt.accelerations);
+    // JointTrajPtFullMessage msg = create_message(0, i, 0, xform_pt.time_from_start.toNSec()*(1e-6), xform_pt.positions, 
+    //                                             vel00, 
+    //                                             acc00);
     msgs->push_back(msg);
   }
 

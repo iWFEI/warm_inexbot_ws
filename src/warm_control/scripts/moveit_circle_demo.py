@@ -182,8 +182,11 @@ class MoveItCircleDemo:
         if fraction == 1.0:
             rospy.loginfo("Path computed successfully. Moving the arm.")
             new_traj = scale_trajectory_speed(plan, 0.2)
-            arm.execute(new_traj)
+            arm.execute(new_traj,wait=False)
             rospy.loginfo("Path execution complete.")
+            arm.set_named_target('ready')
+            arm.go()
+
         # 如果路径规划失败，则打印失败信息
         else:
             rospy.loginfo("Path planning failed with only " + str(fraction) + " success after " + str(maxtries) + " attempts.")  
