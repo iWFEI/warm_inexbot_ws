@@ -52,6 +52,11 @@ class JointTrajectoryDownloader : public JointTrajectoryInterface
 public:
 
   bool send_to_robot(const std::vector<JointTrajPtFullMessage>& messages);
+  bool send_split_points(JointTrajPtFullMessage point1, JointTrajPtFullMessage point2);
+  bool timei_sub(std::vector<JointTrajPtFullMessage>& points);
+  bool split_10_points_position(industrial::joint_data::JointData positions_1, industrial::joint_data::JointData positions_2,
+                                                std::vector<JointTrajPtFullMessage>& points_11
+                                                );
 
 };
 

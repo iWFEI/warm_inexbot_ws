@@ -30,9 +30,9 @@
   
   <!-- motion_download_interface: sends robot motion commands by DOWNLOADING path to robot
                                   (using socket connection to robot) -->
-  <!-- <node pkg="inexbot_driver" type="motion_download_interface" name="motion_download_interface"/> -->
+  <node pkg="inexbot_driver" type="motion_download_interface" name="motion_download_interface"/>
 
-  <node pkg="inexbot_driver" type="motion_streamer_interface" name="motion_streamer_interface"/>
+  <!-- <node pkg="inexbot_driver" type="motion_streamer_interface" name="motion_streamer_interface"/> -->
   
   <!-- joint_trajectory_action: provides actionlib interface for high-level robot control -->
   <node pkg="industrial_robot_client" type="joint_trajectory_action" name="joint_trajectory_action"/>

@@ -281,7 +281,7 @@ protected:
   std::map<std::string, double> joint_vel_limits_;  // cache of max joint velocities from URDF
   sensor_msgs::JointState cur_joint_pos_;  // cache of last received joint state
   std::vector<double> vel00 {0.0,0.1,-0.1,0.0,0.0,0.0};
-  std::vector<double> acc00 {0.0,0.1,-0.1,0.0,0.0,0.0};
+  std::vector<double> acc00 {0.0,0.0,0.0,0.0,0.0,0.0};
 
 private:
 //将数据转换成JointTrajPtMessage

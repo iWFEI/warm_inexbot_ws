@@ -45,23 +45,23 @@ using industrial_robot_client::joint_trajectory_interface::JointTrajectoryInterf
 using industrial::joint_traj_pt_full_message::JointTrajPtFullMessage;
 using industrial::smpl_msg_connection::SmplMsgConnection;
 
-namespace TransferStates1
+namespace TransferStates
 {
-enum TransferState1
+enum TransferState
 {
   IDLE = 0, STREAMING =1 //,STARTING, //, STOPPING
 };
 
-std::string static to_string1(TransferState1 state)
+std::string static to_string1(TransferState state)
 {
-  if(state == TransferState1::IDLE)
+  if(state == TransferState::IDLE)
     return "IDLE";
-  if(state == TransferState1::STREAMING)
+  if(state == TransferState::STREAMING)
     return "STREAMING";
   return "UNKNOWN";
 }
 }
-typedef TransferStates1::TransferState1 TransferState1;
+typedef TransferStates::TransferState TransferState;
 
 /**
  * \brief Message handler that streams joint trajectories to the robot controller
@@ -100,10 +100,10 @@ public:
    *   - leave empty to lookup from URDF
    * \return true on success, false otherwise (an invalid message type)
    */
-  // virtual bool init(SmplMsgConnection* connection, const std::vector<std::string> &joint_names,
-  //                   const std::map<std::string, double> &velocity_limits = std::map<std::string, double>());
+  virtual bool init(SmplMsgConnection* connection, const std::vector<std::string> &joint_names,
+                    const std::map<std::string, double> &velocity_limits = std::map<std::string, double>());
 
-  virtual bool init(std::string default_ip, int default_port);
+  // virtual bool init(std::string default_ip, int default_port);
 
   ~JointTrajectoryStreamer();
 
@@ -123,7 +123,7 @@ protected:
   boost::mutex mutex_;
   int current_point_;
   std::vector<JointTrajPtFullMessage> current_traj_;
-  TransferState1 state_;
+  TransferState state_;
   ros::Time streaming_start_;
   int min_buffer_size_;
 };

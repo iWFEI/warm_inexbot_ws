@@ -139,6 +139,7 @@ add_executable(fk_demo src/fk_demo.cpp)
 add_executable(ik_demo src/ik_demo.cpp)
 add_executable(cartesian_demo src/cartesian_demo.cpp)
 add_executable(circle_demo src/circle_demo.cpp)
+add_executable(trajectory_point_handle src/trajectory_point_handle.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -165,6 +166,9 @@ target_link_libraries(cartesian_demo
   ${catkin_LIBRARIES}
 )
 target_link_libraries(circle_demo
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(trajectory_point_handle
   ${catkin_LIBRARIES}
 )
 

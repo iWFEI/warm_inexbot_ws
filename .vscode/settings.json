@@ -85,6 +85,14 @@
         "cfenv": "cpp",
         "typeindex": "cpp",
         "variant": "cpp",
-        "bit": "cpp"
+        "bit": "cpp",
+        "arraydispatchers": "cpp",
+        "light": "cpp",
+        "mixinvector": "cpp",
+        "fast_back_stack": "cpp",
+        "bufferobject": "cpp",
+        "image": "cpp",
+        "texture": "cpp",
+        "buffered_value": "cpp"
     }
 }

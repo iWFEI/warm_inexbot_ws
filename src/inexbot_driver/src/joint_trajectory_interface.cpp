@@ -9,6 +9,8 @@
 #include "simple_message/joint_traj_pt_full.h"
 
 #include "industrial_utils/param_utils.h"
+// #include <iostream>
+// #include <fstream>
 
 using namespace industrial_utils::param;
 using industrial::simple_message::SimpleMessage;
@@ -63,6 +65,7 @@ bool JointTrajectoryInterface::init(SmplMsgConnection* connection)
     return false;
   }
 
+  // return init(connection, joint_names);
   return init(connection, joint_names);
 }
 
@@ -151,10 +154,14 @@ bool JointTrajectoryInterface::trajectory_to_msgs(const trajectory_msgs::JointTr
     // reduce velocity to a single scalar, for robot command
     // if (!calc_speed(xform_pt, &vel, &duration))
     //   return false;
-    JointTrajPtFullMessage msg = create_message(0, i, 0, xform_pt.time_from_start.toNSec()*(1e-6), xform_pt.positions, xform_pt.velocities, xform_pt.accelerations);
+    // JointTrajPtFullMessage msg = create_message(0, i, 0, xform_pt.time_from_start.toNSec()*(1e-6), xform_pt.positions, xform_pt.velocities, xform_pt.accelerations);
+    JointTrajPtFullMessage msg = create_message(0, i, 0, xform_pt.time_from_start.toNSec()*(1e-6), xform_pt.positions, 
+                                                vel00, 
+                                                acc00);
     // JointTrajPtFullMessage msg = create_message(0, i, 0, xform_pt.time_from_start.toNSec()*(1e-6), xform_pt.positions, 
-    //                                             vel00, 
-    //                                             acc00);
+    //                                               vel00, 
+    //                                               xform_pt.accelerations);
+
     msgs->push_back(msg);
   }
 

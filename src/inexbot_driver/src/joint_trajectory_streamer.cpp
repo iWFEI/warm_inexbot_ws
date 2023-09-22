@@ -30,6 +30,8 @@
  */
 
 #include "abb_driver/joint_trajectory_streamer.h"
+#include <iostream>
+#include <fstream>
 
 using industrial::simple_message::SimpleMessage;
 
@@ -37,27 +39,31 @@ namespace industrial_robot_client
 {
 namespace joint_trajectory_streamer
 {
+namespace SpecialSeqValues = industrial::joint_traj_pt_full::SpecialSeqValues;
 
-// bool JointTrajectoryStreamer::init(SmplMsgConnection* connection, const std::vector<std::string> &joint_names,
-//                                    const std::map<std::string, double> &velocity_limits)
-bool JointTrajectoryStreamer::init(std::string default_ip, int default_port)
+// bool JointTrajectoryStreamer::init(std::string default_ip, int default_port)
+bool JointTrajectoryStreamer::init(SmplMsgConnection* connection, const std::vector<std::string> &joint_names,
+                                   const std::map<std::string, double> &velocity_limits)
 {
   bool rtn = true;
 
   ROS_INFO("JointTrajectoryStreamer: init");
 
+  // rtn &= JointTrajectoryInterface::init(default_ip, default_port);
+  rtn &= JointTrajectoryInterface::init(connection, joint_names, velocity_limits);
+
   this->mutex_.lock();
   this->current_point_ = 0;
-  this->state_ = TransferStates1::IDLE;
+  this->state_ = TransferStates::IDLE;
   this->streaming_thread_ =
       new boost::thread(boost::bind(&JointTrajectoryStreamer::streamingThread, this));
   ROS_INFO("Unlocking mutex");
   this->mutex_.unlock();
 
-  rtn &= JointTrajectoryInterface::init(default_ip, default_port);
-
   return rtn;
 }
+
+
 
 JointTrajectoryStreamer::~JointTrajectoryStreamer()
 {
@@ -80,7 +86,7 @@ void JointTrajectoryStreamer::jointTrajectoryCB(const trajectory_msgs::JointTraj
   // would be "IDLE", and we'd end up not sending the stop request.
   if (msg->points.empty())
   {
-    ROS_INFO_STREAM("Empty trajectory received while in state: " << TransferStates1::to_string1(state) << ". Canceling current trajectory.");
+    ROS_INFO_STREAM("Empty trajectory received while in state: " << TransferStates::to_string1(state) << ". Canceling current trajectory.");
     this->mutex_.lock();
     trajectoryStop();
     this->mutex_.unlock();
@@ -90,7 +96,7 @@ void JointTrajectoryStreamer::jointTrajectoryCB(const trajectory_msgs::JointTraj
   // if we're currently streaming a trajectory and we're requested to stream another
   // we complain, as splicing is not supported. Cancellation of the current trajectory
   // should first be requested, then a new trajectory started.
-  if (TransferStates1::IDLE != state)
+  if (TransferStates::IDLE != state)
   {
     ROS_ERROR("Trajectory splicing not yet implemented, stopping current motion.");
     this->mutex_.lock();
@@ -104,6 +110,10 @@ void JointTrajectoryStreamer::jointTrajectoryCB(const trajectory_msgs::JointTraj
   if (!trajectory_to_msgs(msg, &new_traj_msgs))
     return;
 
+  // std::ofstream myout("/home/neil/bg.txt");
+  // myout<< "1111" << std::endl;
+  // myout.close();
+
   // send command messages to robot
   send_to_robot(new_traj_msgs);
 }
@@ -116,7 +126,7 @@ bool JointTrajectoryStreamer::send_to_robot(const std::vector<JointTrajPtFullMes
     ROS_INFO("Executing trajectory of size: %d", (int)messages.size());
     this->current_traj_ = messages;
     this->current_point_ = 0;
-    this->state_ = TransferStates1::STREAMING;
+    this->state_ = TransferStates::STREAMING;
     this->streaming_start_ = ros::Time::now();
   }
   this->mutex_.unlock();
@@ -141,11 +151,12 @@ bool JointTrajectoryStreamer::trajectory_to_msgs(const trajectory_msgs::JointTra
   return true;
 }
 
-
 void JointTrajectoryStreamer::streamingThread()
 {
   JointTrajPtFullMessage jtpMsg;
   int connectRetryCount = 1;
+  bool is_connected = false;
+  bool is_msg_sent = false;
 
   ROS_INFO("Starting joint trajectory streamer thread");
   while (ros::ok())
@@ -157,14 +168,21 @@ void JointTrajectoryStreamer::streamingThread()
     {
       ROS_INFO("Connecting to robot motion server");
       this->connection_->makeConnect();
-      ros::Duration(0.250).sleep();  // wait for connection
+      ros::Duration(0.250).sleep(); 
+       // wait for connection
+      is_connected = false;
+      {
+        is_connected = this->connection_->isConnected();
+      }
 
-      if (this->connection_->isConnected())
+      if (is_connected)
+      {
         connectRetryCount = 0;
+      }
       else if (connectRetryCount <= 0)
       {
         ROS_ERROR("Timeout connecting to robot controller.  Send new motion command to retry.");
-        this->state_ = TransferStates1::IDLE;
+        this->state_ = TransferStates::IDLE;
       }
       continue;
     }
@@ -172,22 +190,26 @@ void JointTrajectoryStreamer::streamingThread()
     this->mutex_.lock();
 
     SimpleMessage msg, reply;
-        
+
     switch (this->state_)
     {
-      case TransferStates1::IDLE:
-        ros::Duration(0.010).sleep();  //  loop while waiting for new trajectory
+      case TransferStates::IDLE:
+        ros::Duration(0.250).sleep();  //  loop while waiting for new trajectory
         break;
 
-      case TransferStates1::STREAMING:
+      case TransferStates::STREAMING:
         if (this->current_point_ >= (int)this->current_traj_.size())
         {
           ROS_INFO("Trajectory streaming complete, setting state to IDLE");
-          this->state_ = TransferStates1::IDLE;
+          this->state_ = TransferStates::IDLE;
           break;
         }
 
-        if (!this->connection_->isConnected())
+        is_connected = false;
+        {
+          is_connected = this->connection_->isConnected();
+        }
+        if (!is_connected)
         {
           ROS_DEBUG("Robot disconnected.  Attempting reconnect...");
           connectRetryCount = 5;
@@ -196,27 +218,29 @@ void JointTrajectoryStreamer::streamingThread()
 
         jtpMsg = this->current_traj_[this->current_point_];
         jtpMsg.toRequest(msg);
-            
+        // jtpMsg.toTopic(msg);
+
         ROS_DEBUG("Sending joint trajectory point");
-        if (this->connection_->sendAndReceiveMsg(msg, reply, false))
+        // if (this->connection_->sendAndReceiveMsg(msg, reply, false))
+        // is_msg_sent = this->connection_->sendMsg(msg);
+        is_msg_sent = this->connection_->sendAndReceiveMsg(msg, reply, false);
+        if (is_msg_sent)
         {
           this->current_point_++;
           ROS_INFO("Point[%d of %d] sent to controller",
                    this->current_point_, (int)this->current_traj_.size());
         }
-        else
+        else {
           ROS_WARN("Failed sent joint point, will try again");
-
+        }
         break;
       default:
         ROS_ERROR("Joint trajectory streamer: unknown state");
-        this->state_ = TransferStates1::IDLE;
+        this->state_ = TransferStates::IDLE;
         break;
     }
-
     this->mutex_.unlock();
   }
-
   ROS_WARN("Exiting trajectory streamer thread");
 }
 
@@ -225,7 +249,7 @@ void JointTrajectoryStreamer::trajectoryStop()
   JointTrajectoryInterface::trajectoryStop();
 
   ROS_DEBUG("Stop command sent, entering idle mode");
-  this->state_ = TransferStates1::IDLE;
+  this->state_ = TransferStates::IDLE;
 }
 
 } //joint_trajectory_streamer

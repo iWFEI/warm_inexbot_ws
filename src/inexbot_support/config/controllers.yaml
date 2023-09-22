@@ -4,6 +4,10 @@ controller_list:
     type: FollowJointTrajectory
     joints: ['shoulder_pan_joint', 'shoulder_lift_joint', 'elbow_joint', 'wrist_1_joint', 'wrist_2_joint', 'wrist_3_joint']
 
+# joint_state_controller:
+#     type: joint_state_controller/JointStateController
+#     publish_rate: 100
+
 # controller_list:
 #   - name: ""
 #     action_ns: follow_joint_trajectory
