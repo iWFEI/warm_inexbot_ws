@@ -126,6 +126,7 @@ class MoveItCircleDemo:
         # 设置机械臂终端运动的目标位姿
         arm.set_pose_target(target_pose, end_effector_link)
         arm.go()
+        rospy.sleep(10)
 
         end_pose = deepcopy(target_pose)
 
@@ -141,7 +142,7 @@ class MoveItCircleDemo:
         centerB = target_pose.position.z
         radius = 0.1
 
-        for th in numpy.arange(0, 6.28, 0.07):
+        for th in numpy.arange(0, 6.28, 0.1):
             target_pose.position.x = centerA + radius * math.cos(th)
             target_pose.position.z = centerB + radius * math.sin(th)
             wpose = deepcopy(target_pose)

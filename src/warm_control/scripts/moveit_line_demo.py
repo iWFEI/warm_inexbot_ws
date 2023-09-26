@@ -88,7 +88,7 @@ class MoveItCartesianDemo:
         else:
             arm.set_pose_target(start_pose)
             arm.go()
-            rospy.sleep(1)
+            rospy.sleep(10)
             
         if cartesian:
             fraction = 0.0   #路径规划覆盖率

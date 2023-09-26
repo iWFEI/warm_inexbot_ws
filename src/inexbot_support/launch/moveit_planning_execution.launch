@@ -37,6 +37,13 @@
 		</include>
 	</group>
 
+  <!-- Launch joint_state_publisher node -->
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+    <!-- Set the desired publication frequency in Hz -->
+    <param name="rate" type="double" value="50.0" />
+    <!-- Add any other necessary parameters here -->
+  </node>
+
   <!-- publish the robot state (tf transforms) -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 

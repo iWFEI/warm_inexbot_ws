@@ -35,6 +35,9 @@ bool JointTrajectoryDownloader::send_to_robot(const std::vector<JointTrajPtFullM
   }
 
   ROS_INFO("Sending trajectory points, size: %d", (int)points.size());
+  // 延时flag
+  bool delay_1_flag = false;
+  bool delay_2_flag = false;
   int pointSize = (int)points.size()-1;
   for (int i = 0; i < pointSize; ++i)
   {
@@ -57,12 +60,22 @@ bool JointTrajectoryDownloader::send_to_robot(const std::vector<JointTrajPtFullM
     //   break;
     // }
 
+    if(i==0){
+      delay_1_flag = true;
+    }
     // 将i点的位置分成十等份
     split_10_points_position(positions_1, positions_2, points_11);
     for (size_t i = 0; i < 10; i++)
     {
-      ros::Duration(0.001).sleep(); 
+      // ros::Duration(0.001).sleep(); 
       rslt = send_split_points(points_11[i],points_11[i+1]);
+      if(i == 0){
+        delay_2_flag = true;
+      }
+      if(delay_1_flag && delay_2_flag){
+        ros::Duration(0.001).sleep(); 
+      }
+
     }
 
     // rslt = split_send_points(points[i],points[i+1]);
@@ -77,6 +90,7 @@ bool JointTrajectoryDownloader::send_to_robot(const std::vector<JointTrajPtFullM
     //   ROS_WARN("Failed sent joint point, skipping point");
     // rslt &= ptRslt;// 按位与赋值
   }
+
   return rslt;
 }
 
